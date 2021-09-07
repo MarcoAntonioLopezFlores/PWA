@@ -12,7 +12,7 @@
     
     <div class="container">
         <h1>AGENDA PERSONAS</h1>
-        <div class="row flow" id="registros">
+        <div class="row justify-content-center" id="registros">
             
         </div>
     </div>
@@ -25,9 +25,7 @@
         let container = document.getElementById("registros")
         json.data.map(element => {
             let myDiv = document.createElement("div");
-            myDiv.setAttribute("class", "card")
-            myDiv.setAttribute("style", "width: 18rem;")
-            
+            myDiv.setAttribute("class", "card col-sm-6 col-md-3 mb-4 me-1")            
             let cardElement = 
                 `
                     <img src=${element.avatar} class="card-img-top" alt=${element.name}>
