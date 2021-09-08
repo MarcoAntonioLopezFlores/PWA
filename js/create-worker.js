@@ -16,10 +16,14 @@ let trabajadores = localStorage.getItem("trabajadores") !== null ? JSON.parse(lo
             myDiv.setAttribute("class", "card col-sm-4 col-md-4 mb-4 me-2")
             myDiv.setAttribute("style", "width: 22rem;")
             let cardElement =
-                `                    
+                `   
+                    <div class="d-flex justify-content-center">
+                        <img src="https://image.flaticon.com/icons/png/512/3442/3442087.png" class="card-img-top mt-2" style="width: 50%;" alt=${element.name}>
+                    </div>
                     <div class="card-body">
-                        <h5 class="card-title">${element.name}</h5>
-                        <p class="card-text" style="font-size: 18px;">${element.job}</p>
+                        <h5 class="card-title">${element.name !== "" ?element.name: "ejemplo"+element.id}</h5>
+                        <p class="card-text" style="font-size: 18px;">${element.job !== "" ? element.job: "Sin ocupación"}</p>
+                        <p class="card-title">${element.name !== "" ?element.name: "ejemplo"+element.id}@gmail.com</p>
                         <p class="card-text" style="font-size: 14px;">última mod. ${element.createdAt !== null && element.createdAt !== undefined ? element.createdAt: element.updatedAt}</p>
                         <button type="button" onclick="getDetailsWorker(${index}, ${element.id})" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModalActualizacion">
                             <i class="bi bi-pencil-fill"></i>
