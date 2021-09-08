@@ -3,6 +3,14 @@ let trabajadores = localStorage.getItem("trabajadores") !== null ? JSON.parse(lo
 
         let mainContainer = document.getElementById("registros")
         mainContainer.replaceChildren()
+        if(trabajadores.length<1){
+            const alertDiv = document.createElement("div")
+            alertDiv.setAttribute("class", "alert alert-warning ")
+            alertDiv.setAttribute("role", "alert")
+
+            alertDiv.innerHTML = '<strong>No existen registros aún!</strong>'
+            mainContainer.replaceChildren(alertDiv)
+        }
         trabajadores.map((element, index) => {
             let myDiv = document.createElement("div");
             myDiv.setAttribute("class", "card col-sm-4 col-md-4 mb-4 me-2")
@@ -21,7 +29,8 @@ let trabajadores = localStorage.getItem("trabajadores") !== null ? JSON.parse(lo
                         </button>                        
                     </div>
                     `;
-            myDiv.innerHTML = cardElement
+            myDiv.innerHTML = cardElement            
+            
             mainContainer.appendChild(myDiv)
         })
     }
@@ -49,7 +58,7 @@ let trabajadores = localStorage.getItem("trabajadores") !== null ? JSON.parse(lo
             .catch(error => {
                 let container = document.getElementById("container-alert")
                 const alertDiv = document.createElement("div")
-                alertDiv.setAttribute("class", "alert alert-error alert-dismissible fade show")
+                alertDiv.setAttribute("class", "alert alert-danger alert-dismissible fade show")
                 alertDiv.setAttribute("role", "alert")
 
                 alertDiv.innerHTML = '<strong>Ocurrió un error al registrar el último trabajador!</strong><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>'
@@ -105,7 +114,7 @@ let trabajadores = localStorage.getItem("trabajadores") !== null ? JSON.parse(lo
             .catch(error => {
                 let container = document.getElementById("container-alert")
                 const alertDiv = document.createElement("div")
-                alertDiv.setAttribute("class", "alert alert-error alert-dismissible fade show")
+                alertDiv.setAttribute("class", "alert alert-danger alert-dismissible fade show")
                 alertDiv.setAttribute("role", "alert")
 
                 alertDiv.innerHTML = '<strong>Ocurrió un error al actualizar el trabajador!</strong><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>'
@@ -141,7 +150,7 @@ let trabajadores = localStorage.getItem("trabajadores") !== null ? JSON.parse(lo
             .catch(error => {
                 let container = document.getElementById("container-alert")
                 const alertDiv = document.createElement("div")
-                alertDiv.setAttribute("class", "alert alert-error alert-dismissible fade show")
+                alertDiv.setAttribute("class", "alert alert-danger alert-dismissible fade show")
                 alertDiv.setAttribute("role", "alert")
 
                 alertDiv.innerHTML = '<strong>Ocurrió un error al eliminar el trabajador!</strong><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>'
