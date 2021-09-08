@@ -23,7 +23,7 @@ let trabajadores = localStorage.getItem("trabajadores") !== null ? JSON.parse(lo
                     <div class="card-body">
                         <h5 class="card-title">${element.name !== "" ?element.name: "ejemplo"+element.id}</h5>
                         <p class="card-text" style="font-size: 18px;">${element.job !== "" ? element.job: "Sin ocupación"}</p>
-                        <p class="card-title">${element.name !== "" ?element.name: "ejemplo"+element.id}@gmail.com</p>
+                        <p class="card-title">${element.name !== "" ?element.name.toLowerCase().replace(/ /g, ""): "ejemplo"+element.id}@gmail.com</p>
                         <p class="card-text" style="font-size: 14px;">última mod. ${element.createdAt !== null && element.createdAt !== undefined ? element.createdAt: element.updatedAt}</p>
                         <button type="button" onclick="getDetailsWorker(${index}, ${element.id})" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModalActualizacion">
                             <i class="bi bi-pencil-fill"></i>
