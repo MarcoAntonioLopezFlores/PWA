@@ -125,7 +125,6 @@ let trabajadores = localStorage.getItem("trabajadores") !== null ? JSON.parse(lo
                 container.replaceChildren(alertDiv)
             })
             .then((json) => {
-                console.log(json)
                 let container = document.getElementById("container-alert")
                 const alertDiv = document.createElement("div")
                 alertDiv.setAttribute("class", "alert alert-success alert-dismissible fade show")
@@ -150,7 +149,7 @@ let trabajadores = localStorage.getItem("trabajadores") !== null ? JSON.parse(lo
                 'Content-Type': 'application/json'
             }
         })
-            .then(data => {console.log(data);data.json()})
+            .then(data => {data.json()})
             .catch(error => {
                 let container = document.getElementById("container-alert")
                 const alertDiv = document.createElement("div")
